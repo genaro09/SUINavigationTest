@@ -23,9 +23,11 @@ class UserSessionViewModel: ObservableObject {
     private let storage: UserDefaults = UserDefaults.standard
     private var cancellables: Set<AnyCancellable> = []
 
+    @Published var flag: Bool = false
+    
+    let userState = PassthroughSubject<SessionState, Never>()
     var state: SessionState?
     var user: User?
-    let userState = PassthroughSubject<SessionState, Never>()
     
     init() {
         userState
@@ -59,6 +61,7 @@ class UserSessionViewModel: ObservableObject {
         
     }
     
+    /// Validate the current session of the app
     func setUpUserSession() {        
         if let userData = storage.object(forKey: UserSessionViewModel.userKey) as? Data,
            let user = try? JSONDecoder().decode(User.self, from: userData) {

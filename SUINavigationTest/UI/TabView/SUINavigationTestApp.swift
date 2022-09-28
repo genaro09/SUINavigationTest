@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct SUINavigationTestApp: App {
-    let session = UserSessionViewModel()
+    @StateObject var session = UserSessionViewModel()
 
     var body: some Scene {
         WindowGroup {

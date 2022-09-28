@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 
+// The usage of Protocols on the services is so we can change the source of the data without changing the view models
 protocol ColorsFetcher {
     func fetchColors() -> AnyPublisher<[ColorData], NetworkRequestError>
 }

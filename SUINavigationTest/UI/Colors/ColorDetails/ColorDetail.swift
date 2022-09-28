@@ -44,6 +44,12 @@ struct ColorDetail: View {
                 }
             }
             .padding()
+            
+            /// This would change a flag in the `UserSessionViewModel`, invalidating the root view containing the `EnvironmentObject` and redrawing the entire application
+            CapsuleButtonView(label: "Change Published flag") {
+                userSession.flag.toggle()
+            }
+            .padding()
         }
         .userSession {
             sessionState = $0

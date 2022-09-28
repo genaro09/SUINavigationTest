@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @ObservedObject var viewModel: UserSessionViewModel
+    @StateObject var viewModel: UserSessionViewModel
     @State var isLoginFlowPresented = false
 
     var body: some View {
