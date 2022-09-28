@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavoritesColorsView: View {
-    @EnvironmentObject var userSession: UserSessionViewModel
+    @EnvironmentObject var userSession: UserSession
     @ObservedObject var viewModel: FavoritesColorsViewModel
     @State var sessionState: SessionState = .guest
 

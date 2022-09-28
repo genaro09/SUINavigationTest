@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AccountView: View {
-    @EnvironmentObject var userSession: UserSessionViewModel
+    @EnvironmentObject var userSession: UserSession
     @State var sessionState: SessionState = .guest
 
     var body: some View {
@@ -86,6 +86,6 @@ struct AccountView: View {
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView()
-            .environmentObject(UserSessionViewModel())
+            .environmentObject(UserSession())
     }
 }

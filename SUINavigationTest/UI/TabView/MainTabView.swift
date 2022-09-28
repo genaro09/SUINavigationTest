@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @StateObject var viewModel: UserSessionViewModel
+    @EnvironmentObject var userSession: UserSession
     @State var isLoginFlowPresented = false
 
     var body: some View {
@@ -43,8 +43,7 @@ struct MainTabView: View {
         .fullScreenCover(isPresented: $isLoginFlowPresented) {
             LoginView()
         }
-        .environmentObject(viewModel)
-        .onReceive(viewModel.userState) { state in
+        .onReceive(userSession.userState) { state in
             switch state {
             case .loggedOut:
                 isLoginFlowPresented = true
@@ -53,13 +52,14 @@ struct MainTabView: View {
             }
         }
         .onAppear {
-            viewModel.setUpUserSession()
+            userSession.setUpUserSession()
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView(viewModel: UserSessionViewModel())
+        MainTabView()
+            .environmentObject(UserSession())
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @EnvironmentObject var userSession: UserSessionViewModel
+    @EnvironmentObject var userSession: UserSession
 
     var body: some View {
         NavigationView {
@@ -39,6 +39,6 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
-            .environmentObject(UserSessionViewModel())
+            .environmentObject(UserSession())
     }
 }
