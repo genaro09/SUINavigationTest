@@ -108,6 +108,8 @@ xcuserdata
 
 ### Xcode ###
 
+*.DS_Store
+
 ## Xcode 8 and earlier
 
 ### Xcode Patch ###
