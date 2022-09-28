@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct SUINavigationTestApp: App {
+    @StateObject var session = UserSessionViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView(viewModel: session)
         }
     }
 }
