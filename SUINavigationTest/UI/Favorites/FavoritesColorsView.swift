@@ -13,7 +13,7 @@ struct FavoritesColorsView: View {
     @State var sessionState: SessionState = .guest
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 switch sessionState {
                 case .loggedIn:
@@ -26,6 +26,7 @@ struct FavoritesColorsView: View {
                 sessionState = newState
             }
             .navigationTitle("Favorites")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     

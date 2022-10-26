@@ -11,7 +11,7 @@ struct ColorListView: View {
     @ObservedObject var viewModel: ColorListViewModel
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(viewModel.colors) { color in
                     NavigationLink(destination: ColorDetail(color: color)) {
@@ -29,6 +29,7 @@ struct ColorListView: View {
             }
             .onAppear(perform: viewModel.fetchColors)
             .navigationTitle("Colors")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
