@@ -9,24 +9,26 @@ import SwiftUI
 
 struct FavoritesColorsView: View {
     @EnvironmentObject var userSession: UserSession
-    @ObservedObject var viewModel: FavoritesColorsViewModel
+    @Binding var path: NavigationPath
+    @StateObject var viewModel: FavoritesColorsViewModel
     @State var sessionState: SessionState = .guest
 
     var body: some View {
-        NavigationStack {
-            VStack {
-                switch sessionState {
-                case .loggedIn:
-                    favoriteList
-                default:
-                    guestView
-                }
+        VStack {
+            switch sessionState {
+            case .loggedIn:
+                favoriteList
+            default:
+                guestView
             }
-            .userSession { newState in
-                sessionState = newState
-            }
-            .navigationTitle("Favorites")
-            .navigationBarTitleDisplayMode(.inline)
+        }
+        .userSession { newState in
+            sessionState = newState
+        }
+        .navigationTitle("Favorites")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(for: ColorData.self) { color in
+            ColorDetail(color: color)
         }
     }
     
@@ -45,24 +47,25 @@ struct FavoritesColorsView: View {
     var favoriteList: some View {
         List {
             ForEach(viewModel.colors) { color in
-                NavigationLink(destination: ColorDetail(color: color)) {
-                    HStack {
-                        Color(hex: color.hex.value)
-                            .frame(width: 100)
-                            .aspectRatio(contentMode: .fill)
+                HStack {
+                    Color(hex: color.hex.value)
+                        .frame(width: 100)
+                        .aspectRatio(contentMode: .fill)
 
-                        Text(color.name.value)
-                            .font(.title3)
-                    }
-                    .padding(.vertical, 4)
+                    Text(color.name.value)
+                        .font(.title3)
+                }
+                .padding(.vertical, 4)
+                .onTapGesture {
+                    path.append(color)
                 }
             }
         }
     }
 }
 
-struct FavoritesColorsView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoritesColorsView(viewModel: FavoritesColorsViewModel())
-    }
-}
+//struct FavoritesColorsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FavoritesColorsView(viewModel: FavoritesColorsViewModel(), path: .ini)
+//    }
+//}

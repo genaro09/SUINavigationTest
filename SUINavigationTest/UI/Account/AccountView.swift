@@ -12,21 +12,19 @@ struct AccountView: View {
     @State var sessionState: SessionState = .guest
 
     var body: some View {
-        NavigationStack {
-            VStack {
-                switch sessionState {
-                case .loggedIn:
-                    userView
-                default:
-                    guestView
-                }
+        VStack {
+            switch sessionState {
+            case .loggedIn:
+                userView
+            default:
+                guestView
             }
-            .userSession { newState in
-                sessionState = newState
-            }
-            .navigationTitle("Account")
-            .navigationBarTitleDisplayMode(.inline)
         }
+        .userSession { newState in
+            sessionState = newState
+        }
+        .navigationTitle("Account")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     var guestView: some View {

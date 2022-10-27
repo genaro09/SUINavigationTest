@@ -7,31 +7,31 @@
 
 import SwiftUI
 
-struct Colors: Decodable {
+struct Colors: Decodable, Hashable {
     let colors: [ColorData]
 }
 
-struct ColorData: Decodable {
+struct ColorData: Decodable, Hashable {
     let hex: ColorHex
     let name: ColorName
     let image: ColorImage
     let rgb: RGB
     
-    struct ColorHex: Decodable {
+    struct ColorHex: Decodable, Hashable {
         let value: String
         let clean: String
     }
 
-    struct ColorName: Decodable {
+    struct ColorName: Decodable, Hashable {
         let value: String
     }
 
-    struct ColorImage: Decodable {
+    struct ColorImage: Decodable, Hashable {
         let bare: String
         let named: String
     }
 
-    struct RGB: Decodable {
+    struct RGB: Decodable, Hashable {
         let value: String
         let r: Int
         let g: Int
