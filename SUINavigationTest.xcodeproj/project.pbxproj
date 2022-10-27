@@ -22,7 +22,7 @@
 		68BF697728E38FAB00C05E27 /* ColorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF697628E38FAB00C05E27 /* ColorListView.swift */; };
 		68BF697B28E3938300C05E27 /* ColorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF697A28E3938300C05E27 /* ColorDetail.swift */; };
 		68BF697E28E3987B00C05E27 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF697D28E3987B00C05E27 /* AccountView.swift */; };
-		68BF698228E399C400C05E27 /* UserSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF698128E399C400C05E27 /* UserSessionViewModel.swift */; };
+		68BF698228E399C400C05E27 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF698128E399C400C05E27 /* UserSession.swift */; };
 		68BF698428E39AC800C05E27 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF698328E39AC800C05E27 /* User.swift */; };
 		68BF698728E39C1600C05E27 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF698628E39C1600C05E27 /* LoginView.swift */; };
 		68BF698A28E39F0300C05E27 /* CapsuleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF698928E39F0300C05E27 /* CapsuleButtonView.swift */; };
@@ -68,7 +68,7 @@
 		68BF697628E38FAB00C05E27 /* ColorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListView.swift; sourceTree = "<group>"; };
 		68BF697A28E3938300C05E27 /* ColorDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetail.swift; sourceTree = "<group>"; };
 		68BF697D28E3987B00C05E27 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
-		68BF698128E399C400C05E27 /* UserSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionViewModel.swift; sourceTree = "<group>"; };
+		68BF698128E399C400C05E27 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		68BF698328E39AC800C05E27 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		68BF698628E39C1600C05E27 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		68BF698928E39F0300C05E27 /* CapsuleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButtonView.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 			children = (
 				68BF693C28E3629600C05E27 /* SUINavigationTestApp.swift */,
 				68BF693E28E3629600C05E27 /* MainTabView.swift */,
-				68BF698128E399C400C05E27 /* UserSessionViewModel.swift */,
+				68BF698128E399C400C05E27 /* UserSession.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -429,7 +429,7 @@
 				68BF697328E3883A00C05E27 /* ColorListViewModel.swift in Sources */,
 				68BF698728E39C1600C05E27 /* LoginView.swift in Sources */,
 				68BF699528E3C0F900C05E27 /* FavoritesColorsViewModel.swift in Sources */,
-				68BF698228E399C400C05E27 /* UserSessionViewModel.swift in Sources */,
+				68BF698228E399C400C05E27 /* UserSession.swift in Sources */,
 				68BF697E28E3987B00C05E27 /* AccountView.swift in Sources */,
 				68BF697B28E3938300C05E27 /* ColorDetail.swift in Sources */,
 				68BF698C28E3A05900C05E27 /* SignInView.swift in Sources */,

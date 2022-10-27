@@ -18,7 +18,7 @@ extension View {
 }
 
 struct UserSessionModifier: ViewModifier {
-    @EnvironmentObject var userSession: UserSessionViewModel
+    @EnvironmentObject var userSession: UserSession
     @SwiftUI.State var didLoad = false
     let sessionState: (SessionState) -> Void
     

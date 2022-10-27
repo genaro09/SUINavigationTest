@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignInView: View {
-    @EnvironmentObject var userSession: UserSessionViewModel
+    @EnvironmentObject var userSession: UserSession
 
     var body: some View {
         VStack {
@@ -33,6 +33,6 @@ struct SignInView: View {
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView()
-            .environmentObject(UserSessionViewModel())
+            .environmentObject(UserSession())
     }
 }

@@ -8,24 +8,23 @@
 import SwiftUI
 
 struct AccountView: View {
-    @EnvironmentObject var userSession: UserSessionViewModel
+    @EnvironmentObject var userSession: UserSession
     @State var sessionState: SessionState = .guest
 
     var body: some View {
-        NavigationView {
-            VStack {
-                switch sessionState {
-                case .loggedIn:
-                    userView
-                default:
-                    guestView
-                }
+        VStack {
+            switch sessionState {
+            case .loggedIn:
+                userView
+            default:
+                guestView
             }
-            .userSession { newState in
-                sessionState = newState
-            }
-            .navigationTitle("Account")
         }
+        .userSession { newState in
+            sessionState = newState
+        }
+        .navigationTitle("Account")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     var guestView: some View {
@@ -86,6 +85,6 @@ struct AccountView: View {
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView()
-            .environmentObject(UserSessionViewModel())
+            .environmentObject(UserSession())
     }
 }

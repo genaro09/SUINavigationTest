@@ -18,7 +18,7 @@ enum SessionState: Identifiable {
     }
 }
 
-class UserSessionViewModel: ObservableObject {
+class UserSession: ObservableObject {
     static let userKey: String = "User"
     private let storage: UserDefaults = UserDefaults.standard
     private var cancellables: Set<AnyCancellable> = []
@@ -44,7 +44,7 @@ class UserSessionViewModel: ObservableObject {
     func signOut() {
         userState.send(.loggedOut)
         user = nil
-        storage.removeObject(forKey: UserSessionViewModel.userKey)
+        storage.removeObject(forKey: UserSession.userKey)
     }
     
     func continueAsGuest() {
@@ -54,7 +54,7 @@ class UserSessionViewModel: ObservableObject {
     func signIn() {
         let user = User()
         if let encoded = try? JSONEncoder().encode(user) {
-            storage.set(encoded, forKey: UserSessionViewModel.userKey)
+            storage.set(encoded, forKey: UserSession.userKey)
             self.user = user
             userState.send(.loggedIn)
         }
@@ -63,7 +63,7 @@ class UserSessionViewModel: ObservableObject {
     
     /// Validate the current session of the app
     func setUpUserSession() {        
-        if let userData = storage.object(forKey: UserSessionViewModel.userKey) as? Data,
+        if let userData = storage.object(forKey: UserSession.userKey) as? Data,
            let user = try? JSONDecoder().decode(User.self, from: userData) {
             self.user = user
             userState.send(.loggedIn)

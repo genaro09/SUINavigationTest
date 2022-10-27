@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ColorDetail: View {
-    @EnvironmentObject var userSession: UserSessionViewModel
+    @EnvironmentObject var userSession: UserSession
     @State var sessionState: SessionState = .guest
     @State var presentLoginError: Bool = false
     let color: ColorData
@@ -74,6 +74,6 @@ struct ColorDetail_Previews: PreviewProvider {
                 rgb: .init(value: "rgb(0,0,0)", r: 0, g: 0, b: 0)
             )
         )
-        .environmentObject(UserSessionViewModel())
+        .environmentObject(UserSession())
     }
 }
